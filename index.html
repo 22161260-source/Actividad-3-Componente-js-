@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Componentes visuales reutilizables</title>
+<title>Faro.js — Componentes visuales reutilizables</title>
+<link rel="icon" type="image/svg+xml" href="img/icono-faro.svg" />
 <link rel="stylesheet" href="css/componente.css" />
 <style>
   * { box-sizing: border-box; }
@@ -81,7 +82,7 @@
 
 <header class="hero">
   <h1>Faro.js</h1>
-  <p>Librería de componentes visuales en JavaScript modal de confirmación y notificaciones toast.</p>
+  <p>Librería de componentes visuales en JavaScript puro: modal de confirmación y notificaciones toast.</p>
 </header>
 
 <main>
@@ -89,7 +90,7 @@
   <section id="demo-modal">
     <span class="tag">Componente 1</span>
     <h2>Modal</h2>
-    <p class="desc">Ventana emergente reutilizable.</p>
+    <p class="desc">Ventana emergente reutilizable. Recibe título, contenido y textos de los botones como parámetros, así que puedes usarla para confirmaciones, formularios o avisos sin tocar el código fuente.</p>
     <div class="demo-box">
       <button class="faro-btn faro-btn-primary" id="btn-modal-1">Eliminar cuenta</button>
     </div>
@@ -98,7 +99,7 @@
   <section id="demo-toast">
     <span class="tag">Componente 2</span>
     <h2>Toast</h2>
-    <p class="desc"></p>
+    <p class="desc">Notificaciones temporales no intrusivas, con variantes de color según el tipo de mensaje. Ideal para confirmar acciones sin interrumpir el flujo del usuario.</p>
     <div class="demo-box">
       <button class="faro-btn" id="toast-info">Info</button>
       <button class="faro-btn" id="toast-success">Éxito</button>
@@ -109,11 +110,13 @@
 
 </main>
 
-
+<footer>
+  Faro.js — librería educativa creada con JavaScript puro. <a href="README.md">Ver documentación</a>
+</footer>
 
 <script src="js/componente.js"></script>
 <script>
-  // ---------- MODAL ----------
+
   document.getElementById("btn-modal-1").addEventListener("click", () => {
     Faro.modal({
       title: "¿Eliminar tu cuenta?",
@@ -124,7 +127,6 @@
     });
   });
 
-  // ---------- TOAST ----------
   document.getElementById("toast-info").addEventListener("click", () =>
     Faro.toast({ message: "Este es un mensaje informativo.", type: "info" })
   );
