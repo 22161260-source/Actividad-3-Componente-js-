@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Componentes visuales reutilizables</title>
+<link rel="stylesheet" href="css/componente.css" />
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--faro-bg);
+    color: var(--faro-text);
+    font-family: Arial, "Segoe UI", sans-serif;
+    line-height: 1.5;
+  }
+  header.hero {
+    padding: 50px 24px 40px;
+    text-align: center;
+    background: var(--faro-surface);
+    border-bottom: 1px solid var(--faro-border);
+  }
+  h1 {
+    font-size: 2rem;
+    margin: 0 0 10px;
+  }
+  header.hero p {
+    max-width: 560px;
+    margin: 0 auto;
+    color: var(--faro-text-muted);
+    font-size: 1rem;
+  }
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+  section h2 {
+    font-size: 1.3rem;
+    margin: 0 0 6px;
+  }
+  section .desc {
+    color: var(--faro-text-muted);
+    font-size: 0.92rem;
+    margin: 0 0 18px;
+    max-width: 600px;
+  }
+  .demo-box {
+    background: var(--faro-surface);
+    border: 1px solid var(--faro-border);
+    border-radius: var(--faro-radius);
+    padding: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+  }
+  .tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--faro-primary);
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: inline-block;
+  }
+  footer {
+    text-align: center;
+    padding: 30px 24px 40px;
+    color: var(--faro-text-muted);
+    font-size: 0.82rem;
+    border-top: 1px solid var(--faro-border);
+  }
+  footer a { color: var(--faro-primary); }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>Faro.js</h1>
+  <p>Librería de componentes visuales en JavaScript modal de confirmación y notificaciones toast.</p>
+</header>
+
+<main>
+
+  <section id="demo-modal">
+    <span class="tag">Componente 1</span>
+    <h2>Modal</h2>
+    <p class="desc">Ventana emergente reutilizable.</p>
+    <div class="demo-box">
+      <button class="faro-btn faro-btn-primary" id="btn-modal-1">Eliminar cuenta</button>
+    </div>
+  </section>
+
+  <section id="demo-toast">
+    <span class="tag">Componente 2</span>
+    <h2>Toast</h2>
+    <p class="desc"></p>
+    <div class="demo-box">
+      <button class="faro-btn" id="toast-info">Info</button>
+      <button class="faro-btn" id="toast-success">Éxito</button>
+      <button class="faro-btn" id="toast-error">Error</button>
+      <button class="faro-btn" id="toast-warning">Advertencia</button>
+    </div>
+  </section>
+
+</main>
+
+
+
+<script src="js/componente.js"></script>
+<script>
+  // ---------- MODAL ----------
+  document.getElementById("btn-modal-1").addEventListener("click", () => {
+    Faro.modal({
+      title: "¿Eliminar tu cuenta?",
+      content: "Esta acción no se puede deshacer. Perderás tu historial y tus preferencias guardadas.",
+      confirmText: "Sí, eliminar",
+      cancelText: "Cancelar",
+      onConfirm: () => Faro.toast({ message: "Cuenta eliminada.", type: "error" }),
+    });
+  });
+
+  // ---------- TOAST ----------
+  document.getElementById("toast-info").addEventListener("click", () =>
+    Faro.toast({ message: "Este es un mensaje informativo.", type: "info" })
+  );
+  document.getElementById("toast-success").addEventListener("click", () =>
+    Faro.toast({ message: "Cambios guardados con éxito.", type: "success" })
+  );
+  document.getElementById("toast-error").addEventListener("click", () =>
+    Faro.toast({ message: "Ocurrió un error al procesar la solicitud.", type: "error" })
+  );
+  document.getElementById("toast-warning").addEventListener("click", () =>
+    Faro.toast({ message: "Tu sesión está por expirar.", type: "warning" })
+  );
+</script>
+
+</body>
+</html>

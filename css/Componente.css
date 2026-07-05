@@ -1,0 +1,148 @@
+
+
+:root {
+  --faro-bg: #f4f6f9;
+  --faro-surface: #ffffff;
+  --faro-border: #dbe0e8;
+  --faro-text: #253142;
+  --faro-text-muted: #67717e;
+  --faro-primary: #3a6df0;
+  --faro-primary-dark: #2c56c4;
+  --faro-success: #2fa876;
+  --faro-danger: #e0483d;
+  --faro-warning: #d99a1f;
+
+  --faro-radius: 6px;
+  --faro-shadow: 0 4px 14px rgba(30, 40, 60, 0.15);
+  --faro-transition: 150ms ease;
+}
+
+
+.faro-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 26, 38, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity var(--faro-transition);
+}
+
+.faro-modal-overlay.faro-open {
+  opacity: 1;
+}
+
+.faro-modal {
+  background: var(--faro-surface);
+  border: 1px solid var(--faro-border);
+  border-radius: var(--faro-radius);
+  box-shadow: var(--faro-shadow);
+  width: min(440px, 90vw);
+  max-height: 85vh;
+  overflow-y: auto;
+  font-family: Arial, "Segoe UI", sans-serif;
+  color: var(--faro-text);
+}
+
+.faro-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 0;
+}
+
+.faro-modal-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.faro-modal-close {
+  background: none;
+  border: none;
+  color: var(--faro-text-muted);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.faro-modal-close:hover {
+  color: var(--faro-text);
+}
+
+.faro-modal-body {
+  padding: 14px 20px 20px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--faro-text-muted);
+}
+
+.faro-modal-footer {
+  padding: 0 20px 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.faro-btn {
+  font-family: Arial, "Segoe UI", sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 9px 16px;
+  border-radius: var(--faro-radius);
+  border: 1px solid var(--faro-border);
+  background: var(--faro-surface);
+  color: var(--faro-text);
+  cursor: pointer;
+}
+
+.faro-btn:hover {
+  background: #eef1f6;
+}
+
+.faro-btn-primary {
+  background: var(--faro-primary);
+  border-color: var(--faro-primary);
+  color: #ffffff;
+}
+
+.faro-btn-primary:hover {
+  background: var(--faro-primary-dark);
+}
+
+.faro-toast-region {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 10000;
+}
+
+.faro-toast {
+  font-family: Arial, "Segoe UI", sans-serif;
+  background: var(--faro-surface);
+  color: var(--faro-text);
+  border: 1px solid var(--faro-border);
+  border-left: 4px solid var(--faro-primary);
+  padding: 12px 16px;
+  border-radius: var(--faro-radius);
+  font-size: 0.88rem;
+  min-width: 220px;
+  max-width: 320px;
+  box-shadow: var(--faro-shadow);
+  opacity: 0;
+  transition: opacity var(--faro-transition);
+}
+
+.faro-toast.faro-show {
+  opacity: 1;
+}
+
+.faro-toast.faro-success { border-left-color: var(--faro-success); }
+.faro-toast.faro-error   { border-left-color: var(--faro-danger); }
+.faro-toast.faro-warning { border-left-color: var(--faro-warning); }
