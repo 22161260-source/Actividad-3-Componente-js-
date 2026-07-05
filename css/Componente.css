@@ -1,4 +1,7 @@
-
+/* ============================================================
+   FARO.JS — estilos de componentes
+   Librería de componentes visuales interactivos en JS puro.
+   ============================================================ */
 
 :root {
   --faro-bg: #f4f6f9;
@@ -17,7 +20,9 @@
   --faro-transition: 150ms ease;
 }
 
-
+/* ============================================================
+   1. MODAL
+   ============================================================ */
 .faro-modal-overlay {
   position: fixed;
   inset: 0;
@@ -113,6 +118,9 @@
   background: var(--faro-primary-dark);
 }
 
+/* ============================================================
+   2. TOAST
+   ============================================================ */
 .faro-toast-region {
   position: fixed;
   bottom: 20px;
